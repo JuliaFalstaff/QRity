@@ -1,6 +1,6 @@
 package com.jfalstaff.qrity.data
 
-data class QrCreatedDbModel(
+data class QrCreatedDto(
     val data: String,
     val size: Int,
     val color: String,

@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">QRity</string>
+    <string name="create_qr_code">Create QR code</string>
+    <string name="read_qr_code">read QR code</string>
+    <string name="are_you_qr_header">Are you QR?</string>
+    <string name="data_hint">data</string>
+    <string name="size_hint">size</string>
+    <string name="color_hint">color</string>
+    <string name="format_hint">format</string>
+    <string name="data">Data</string>
+    <string name="size">Size</string>
+    <string name="color">Color</string>
+    <string name="Format" />
+    <string name="format">Format</string>
 </resources>
