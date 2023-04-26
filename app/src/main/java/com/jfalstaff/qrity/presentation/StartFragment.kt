@@ -13,7 +13,6 @@ class StartFragment : Fragment() {
     private var _binding: FragmentStartBinding? = null
     private val binding get() = _binding ?: throw RuntimeException("FragmentStartBinding is null")
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -34,10 +33,13 @@ class StartFragment : Fragment() {
                 .replace(R.id.mainContainer, CreateQrCodeFragment.newInstance())
                 .addToBackStack(null)
                 .commit()
-
         }
-        binding.readButton.setOnClickListener {
 
+        binding.readButton.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.mainContainer, ReadQrCodeFragment.newInstance())
+                .addToBackStack(null)
+                .commit()
         }
     }
 

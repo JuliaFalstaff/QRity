@@ -42,7 +42,6 @@ class CreateQrCodeFragment : Fragment() {
             Glide.with(requireActivity())
                 .load(url)
                 .into(imageView)
-            Log.d("VVV", "https://api.qrserver.com/v1/create-qr-code/?data=$data")
         }
     }
 
@@ -58,7 +57,7 @@ class CreateQrCodeFragment : Fragment() {
         color: String,
         format: String
     ): String {
-        return "$QR_URL?data=$data&color=$color&format=$format&size=$size"
+        return "$QR_URL?data=$data&color=$color&format=$format&size=$size"+"x$size"
     }
 
     override fun onDestroyView() {
