@@ -15,7 +15,7 @@ import com.jfalstaff.qrity.databinding.FragmentReadQrBinding
 class ReadQrCodeFragment : Fragment() {
 
     private var _binding: FragmentReadQrBinding? = null
-    val binding get() = _binding ?: throw RuntimeException("FragmentReadQrBinding is null")
+    private val binding get() = _binding ?: throw RuntimeException("FragmentReadQrBinding is null")
     lateinit var scanner: GmsBarcodeScanner
 
     override fun onCreateView(
@@ -27,17 +27,14 @@ class ReadQrCodeFragment : Fragment() {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val options = GmsBarcodeScannerOptions.Builder()
             .setBarcodeFormats(
-                Barcode.FORMAT_QR_CODE)
+                Barcode.FORMAT_QR_CODE
+            )
             .build()
-
         scanner = GmsBarcodeScanning.getClient(requireActivity(), options)
-
         scanner.startScan()
             .addOnSuccessListener { barcode ->
                 val rawValue: String? = barcode.rawValue
@@ -51,14 +48,7 @@ class ReadQrCodeFragment : Fragment() {
             }
     }
 
-    override fun onResume() {
-        super.onResume()
-
-    }
-
     companion object {
         fun newInstance(): ReadQrCodeFragment = ReadQrCodeFragment()
     }
-
-
 }

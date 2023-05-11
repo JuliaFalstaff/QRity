@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         android:hint="@string/size_hint"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/dataEditTextView"
         app:layout_constraintStart_toEndOf="@+id/sizeLabelTextView"
         app:layout_constraintTop_toBottomOf="@+id/dataEditTextView" />
 
@@ -69,36 +69,12 @@
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/colorEditTextView"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         android:hint="@string/color_hint"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/colorLabelTextView"
         app:layout_constraintTop_toBottomOf="@+id/sizeEditTextView" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/formatLabelTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:gravity="center"
-        android:padding="@dimen/padding_4dp"
-        android:text="@string/format"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/formatEditTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/formatEditTextView" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/formatEditTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:hint="@string/format_hint"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/formatLabelTextView"
-        app:layout_constraintTop_toBottomOf="@+id/colorEditTextView" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/createQrCodeButton"
@@ -109,16 +85,28 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/formatEditTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/colorEditTextView" />
+
+    <Spinner
+        android:id="@+id/planets_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/colorEditTextView"
+        app:layout_constraintStart_toEndOf="@+id/colorEditTextView"
+        app:layout_constraintTop_toTopOf="@+id/colorEditTextView" />
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:elevation="8dp"
         app:cardUseCompatPadding="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+
 
         <ImageView
             android:id="@+id/imageView"
