@@ -8,18 +8,17 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.jfalstaff.qrity.R
 import com.jfalstaff.qrity.databinding.FragmentCreateQrBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CreateQrCodeFragment : Fragment() {
-
     private var _binding: FragmentCreateQrBinding? = null
     private val binding get() = _binding ?: throw RuntimeException("FragmentStartBinding is null")
-    val viewModel by lazy {
-        ViewModelProvider(requireActivity())[CreateQrCodeViewModel::class.java]
-    }
+    private val viewModel: CreateQrCodeViewModel by viewModels()
     private var chosenColor: String? = null
 
     override fun onCreateView(
@@ -33,7 +32,7 @@ class CreateQrCodeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getColorList2()
+        viewModel.getColorList()
         viewModel.state.observe(viewLifecycleOwner) {
             setSpinnerAdapter(it)
         }

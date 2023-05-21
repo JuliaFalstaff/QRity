@@ -7,9 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.jfalstaff.qrity.R
 import com.jfalstaff.qrity.databinding.FragmentStartBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class StartFragment : Fragment() {
-
     private var _binding: FragmentStartBinding? = null
     private val binding get() = _binding ?: throw RuntimeException("FragmentStartBinding is null")
 

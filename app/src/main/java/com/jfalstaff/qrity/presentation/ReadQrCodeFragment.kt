@@ -11,9 +11,10 @@ import com.google.mlkit.vision.codescanner.GmsBarcodeScanner
 import com.google.mlkit.vision.codescanner.GmsBarcodeScannerOptions
 import com.google.mlkit.vision.codescanner.GmsBarcodeScanning
 import com.jfalstaff.qrity.databinding.FragmentReadQrBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ReadQrCodeFragment : Fragment() {
-
     private var _binding: FragmentReadQrBinding? = null
     private val binding get() = _binding ?: throw RuntimeException("FragmentReadQrBinding is null")
     lateinit var scanner: GmsBarcodeScanner

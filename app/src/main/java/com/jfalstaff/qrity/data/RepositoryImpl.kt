@@ -2,7 +2,7 @@ package com.jfalstaff.qrity.data
 
 import com.jfalstaff.qrity.domain.*
 
-class RepositoryImpl : Repository {
+class RepositoryImpl constructor() : Repository {
     private val colorList = listOf(
         BLACK_COLOR,
         RED_COLOR,
