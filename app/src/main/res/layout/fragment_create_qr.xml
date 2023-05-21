@@ -57,24 +57,16 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/colorLabelTextView"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="4dp"
         android:gravity="center"
         android:padding="@dimen/padding_4dp"
         android:text="@string/color"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/colorEditTextView"
+        app:layout_constraintBottom_toBottomOf="@+id/colorSpinner"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/colorEditTextView" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/colorEditTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:hint="@string/color_hint"
-        app:layout_constraintStart_toEndOf="@+id/colorLabelTextView"
         app:layout_constraintTop_toBottomOf="@+id/sizeEditTextView" />
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/createQrCodeButton"
@@ -85,16 +77,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/colorEditTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/colorSpinner" />
 
     <Spinner
-        android:id="@+id/planets_spinner"
+        android:id="@+id/colorSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/colorEditTextView"
-        app:layout_constraintStart_toEndOf="@+id/colorEditTextView"
-        app:layout_constraintTop_toTopOf="@+id/colorEditTextView" />
-
+        android:layout_margin="4dp"
+        app:layout_constraintStart_toEndOf="@+id/colorLabelTextView"
+        app:layout_constraintTop_toBottomOf="@+id/sizeEditTextView" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -105,8 +96,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-
 
         <ImageView
             android:id="@+id/imageView"

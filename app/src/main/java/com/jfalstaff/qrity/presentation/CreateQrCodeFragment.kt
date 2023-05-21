@@ -10,8 +10,8 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.jfalstaff.qrity.R
 import com.jfalstaff.qrity.databinding.FragmentCreateQrBinding
-import com.jfalstaff.qrity.domain.ColorCode
 
 class CreateQrCodeFragment : Fragment() {
 
@@ -20,7 +20,7 @@ class CreateQrCodeFragment : Fragment() {
     val viewModel by lazy {
         ViewModelProvider(requireActivity())[CreateQrCodeViewModel::class.java]
     }
-    private var chosenColor: ColorCode? = null
+    private var chosenColor: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,20 +33,20 @@ class CreateQrCodeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getColorList()
+        viewModel.getColorList2()
         viewModel.state.observe(viewLifecycleOwner) {
             setSpinnerAdapter(it)
         }
         createQrCode()
     }
 
-    private fun setSpinnerAdapter(colorList: List<ColorCode>) {
+    private fun setSpinnerAdapter(colorList: List<String>) {
         //set adapter
-        val adapter = ArrayAdapter(requireActivity(), android.R.layout.simple_spinner_item, colorList)
-        adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item)
-        binding.planetsSpinner.adapter = adapter
+        val adapter = ArrayAdapter(requireActivity(), R.layout.item_spinner, colorList)
+        adapter.setDropDownViewResource(R.layout.item_spinner)
+        binding.colorSpinner.adapter = adapter
 
-        binding.planetsSpinner.onItemSelectedListener =
+        binding.colorSpinner.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     parent: AdapterView<*>?,
@@ -54,13 +54,12 @@ class CreateQrCodeFragment : Fragment() {
                     position: Int,
                     id: Long
                 ) {
-                    val selected = parent?.getItemAtPosition(position) as ColorCode? ?: ColorCode()
+                    val selected = parent?.getItemAtPosition(position).toString()
                     chosenColor = selected
-                    binding.colorEditTextView.setText(chosenColor?.name)
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
-                    chosenColor = ColorCode()
+                    chosenColor = DEFAULT_COLOR
                 }
             }
     }
@@ -69,7 +68,7 @@ class CreateQrCodeFragment : Fragment() {
         createQrCodeButton.setOnClickListener {
             val data = binding.dataEditTextView.text.toString()
             val size = checkIsEmpty(sizeEditTextView.toString(), DEFAULT_SIZE)
-            val color = checkIsEmpty(chosenColor?.hexCode.toString(), DEFAULT_COLOR)
+            val color = checkColor(chosenColor)
             val url = generateValidUrl(data, size, color)
             Log.d("VVV", url)
             Glide.with(requireActivity())
@@ -100,7 +99,7 @@ class CreateQrCodeFragment : Fragment() {
     companion object {
         const val QR_URL = "https://api.qrserver.com/v1/create-qr-code/"
         const val DEFAULT_SIZE = "150x150"
-        const val DEFAULT_COLOR = "0000ff"
+        const val DEFAULT_COLOR = "Black"
 
         fun newInstance(): CreateQrCodeFragment = CreateQrCodeFragment()
     }

@@ -1,18 +1,17 @@
 package com.jfalstaff.qrity.data
 
-import com.jfalstaff.qrity.domain.ColorCode
-import com.jfalstaff.qrity.domain.Repository
+import com.jfalstaff.qrity.domain.*
 
-class RepositoryImpl() : Repository {
+class RepositoryImpl : Repository {
     private val colorList = listOf(
-        ColorCode("Black", "FFFFFF"),
-        ColorCode("Red", "FF0000"),
-        ColorCode("Orange", "FF7400"),
-        ColorCode("Blue", "1240AB"),
-        ColorCode("Green", "007B25")
+        BLACK_COLOR,
+        RED_COLOR,
+        ORANGE_COLOR,
+        BLUE_COLOR,
+        GREEN_COLOR
     )
 
-    override fun getColorList(): List<ColorCode> {
+    override fun getColorList(): List<String> {
         return colorList
     }
 }
