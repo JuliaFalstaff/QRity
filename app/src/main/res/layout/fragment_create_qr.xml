@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.AppCompatEditText
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/dataEditTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView"
         app:layout_constraintVertical_bias="0.16" />
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/dataLabelTextView"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
@@ -27,12 +27,13 @@
         android:padding="@dimen/padding_4dp"
         android:text="@string/data"
         android:textStyle="bold"
+        app:fontFamily="@font/roboto"
         app:layout_constraintBottom_toBottomOf="@+id/dataEditTextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/dataEditTextView" />
 
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/colorLabelTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,12 +42,13 @@
         android:padding="@dimen/padding_4dp"
         android:text="@string/color"
         android:textStyle="bold"
+        app:fontFamily="@font/roboto"
         app:layout_constraintBottom_toBottomOf="@+id/colorSpinner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dataEditTextView" />
 
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/createQrCodeButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,7 +59,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/colorSpinner" />
 
-    <Spinner
+    <androidx.appcompat.widget.AppCompatSpinner
         android:id="@+id/colorSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -65,8 +67,9 @@
         app:layout_constraintStart_toEndOf="@+id/colorLabelTextView"
         app:layout_constraintTop_toBottomOf="@+id/dataEditTextView" />
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardView"
+        style="@style/Widget.Material3.CardView.Elevated"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:elevation="8dp"
@@ -80,15 +83,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:adjustViewBounds="true"
+            android:adjustViewBounds = "true"
             android:padding="4dp"
-            android:contentDescription="@string/generated_qr"
+            app:contentDescription="@string/generated_qr"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/createQrCodeButton"
             tools:src="@tools:sample/avatars" />
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

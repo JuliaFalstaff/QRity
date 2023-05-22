@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/headerTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,8 +13,7 @@
         android:textAlignment="center"
         android:textSize="@dimen/header_size"
         android:textStyle="bold"
-        android:textColor="@color/navy_blue"
-        android:background="@drawable/corner_radius_title"
+        app:fontFamily="@font/roboto"
         app:layout_constraintBottom_toTopOf="@+id/createButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +23,6 @@
         android:id="@+id/createButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/corner_radius_button"
         android:padding="@dimen/padding_16dp"
         android:text="@string/create_qr_code"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,7 +35,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_16dp"
-        android:background="@drawable/corner_radius_button"
         android:padding="@dimen/padding_16dp"
         android:text="@string/read_qr_code"
         app:layout_constraintEnd_toEndOf="@+id/createButton"
