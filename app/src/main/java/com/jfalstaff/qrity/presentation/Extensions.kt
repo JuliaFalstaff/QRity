@@ -14,3 +14,10 @@ fun checkColor(selectedColor: String?): String {
         }
     }
 }
+
+fun generateValidUrl(
+    data: String,
+    color: String
+): String {
+    return "$QR_URL?data=$data&color=$color"
+}

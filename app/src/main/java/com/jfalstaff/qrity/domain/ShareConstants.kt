@@ -11,3 +11,5 @@ const val RED_COLOR_CODE = "FF0000"
 const val ORANGE_COLOR_CODE = "FF7400"
 const val BLUE_COLOR_CODE = "1240AB"
 const val GREEN_COLOR_CODE = "007B25"
+
+const val QR_URL = "https://api.qrserver.com/v1/create-qr-code/"

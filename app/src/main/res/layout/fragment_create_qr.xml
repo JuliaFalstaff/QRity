@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.AppCompatEditText
@@ -31,28 +31,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/dataEditTextView" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/sizeLabelTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:gravity="center"
-        android:padding="@dimen/padding_4dp"
-        android:text="@string/size"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/sizeEditTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/sizeEditTextView" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/sizeEditTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:hint="@string/size_hint"
-        app:layout_constraintEnd_toEndOf="@+id/dataEditTextView"
-        app:layout_constraintStart_toEndOf="@+id/sizeLabelTextView"
-        app:layout_constraintTop_toBottomOf="@+id/dataEditTextView" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/colorLabelTextView"
@@ -65,7 +43,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/colorSpinner"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sizeEditTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/dataEditTextView" />
 
 
     <androidx.appcompat.widget.AppCompatButton
@@ -85,7 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         app:layout_constraintStart_toEndOf="@+id/colorLabelTextView"
-        app:layout_constraintTop_toBottomOf="@+id/sizeEditTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/dataEditTextView" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -97,13 +75,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:adjustViewBounds="true"
             android:padding="4dp"
+            android:contentDescription="@string/generated_qr"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

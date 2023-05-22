@@ -12,12 +12,13 @@ import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.jfalstaff.qrity.R
 import com.jfalstaff.qrity.databinding.FragmentCreateQrBinding
+import com.jfalstaff.qrity.domain.BLACK_COLOR
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class CreateQrCodeFragment : Fragment() {
     private var _binding: FragmentCreateQrBinding? = null
-    private val binding get() = _binding ?: throw RuntimeException("FragmentStartBinding is null")
+    private val binding get() = _binding ?: throw RuntimeException(CREATE_QR_BINDING_IS_NULL)
     private val viewModel: CreateQrCodeViewModel by viewModels()
     private var chosenColor: String? = null
 
@@ -58,7 +59,7 @@ class CreateQrCodeFragment : Fragment() {
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
-                    chosenColor = DEFAULT_COLOR
+                    chosenColor = BLACK_COLOR
                 }
             }
     }
@@ -66,28 +67,13 @@ class CreateQrCodeFragment : Fragment() {
     private fun createQrCode() = with(binding) {
         createQrCodeButton.setOnClickListener {
             val data = binding.dataEditTextView.text.toString()
-            val size = checkIsEmpty(sizeEditTextView.toString(), DEFAULT_SIZE)
             val color = checkColor(chosenColor)
-            val url = generateValidUrl(data, size, color)
+            val url = generateValidUrl(data, color)
             Log.d("VVV", url)
             Glide.with(requireActivity())
                 .load(url)
                 .into(imageView)
         }
-    }
-
-    private fun checkIsEmpty(string: String, defaultValue: String): String {
-        return string.ifEmpty {
-            defaultValue
-        }
-    }
-
-    private fun generateValidUrl(
-        data: String,
-        size: String,
-        color: String
-    ): String {
-        return "$QR_URL?data=$data&color=$color&size=$size" + "x$size"
     }
 
     override fun onDestroyView() {
@@ -96,10 +82,7 @@ class CreateQrCodeFragment : Fragment() {
     }
 
     companion object {
-        const val QR_URL = "https://api.qrserver.com/v1/create-qr-code/"
-        const val DEFAULT_SIZE = "150x150"
-        const val DEFAULT_COLOR = "Black"
-
+        private const val CREATE_QR_BINDING_IS_NULL = "FragmentCreateQrBinding is null"
         fun newInstance(): CreateQrCodeFragment = CreateQrCodeFragment()
     }
 }
