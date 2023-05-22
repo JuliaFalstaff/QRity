@@ -16,7 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class ReadQrCodeFragment : Fragment() {
     private var _binding: FragmentReadQrBinding? = null
-    private val binding get() = _binding ?: throw RuntimeException("FragmentReadQrBinding is null")
+    private val binding get() = _binding ?: throw RuntimeException(READ_BINDING_IS_NULL)
     lateinit var scanner: GmsBarcodeScanner
 
     override fun onCreateView(
@@ -50,6 +50,7 @@ class ReadQrCodeFragment : Fragment() {
     }
 
     companion object {
+        private const val READ_BINDING_IS_NULL = "FragmentReadQrBinding is null"
         fun newInstance(): ReadQrCodeFragment = ReadQrCodeFragment()
     }
 }

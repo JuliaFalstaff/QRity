@@ -12,7 +12,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class StartFragment : Fragment() {
     private var _binding: FragmentStartBinding? = null
-    private val binding get() = _binding ?: throw RuntimeException("FragmentStartBinding is null")
+    private val binding get() = _binding ?: throw RuntimeException(START_BINDING_IS_NULL)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,6 +50,7 @@ class StartFragment : Fragment() {
     }
 
     companion object {
+        private const val START_BINDING_IS_NULL = "FragmentStartBinding is null"
         fun newInstance(): StartFragment = StartFragment()
     }
 }

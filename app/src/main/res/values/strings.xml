@@ -12,4 +12,5 @@
     <string name="color">Color</string>
     <string name="Format" />
     <string name="format">Format</string>
+    <string name="generated_qr">Generated QR code</string>
 </resources>
